@@ -1,5 +1,5 @@
+import { BodyModule } from './modules/body/body.module';
 import { HeaderModule } from './modules/header/header.module';
-import { MaterialModule } from './modules/material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -15,9 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     // material specific
     BrowserAnimationsModule,
-    MaterialModule,
     // app modules
-    HeaderModule
+    HeaderModule,
+    BodyModule
   ],
   providers: [],
   bootstrap: [AppComponent]
