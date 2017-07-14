@@ -1,3 +1,4 @@
+import { FooterModule } from './modules/footer/footer.module';
 import { BodyModule } from './modules/body/body.module';
 import { HeaderModule } from './modules/header/header.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,7 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     // app modules
     HeaderModule,
-    BodyModule
+    BodyModule,
+    FooterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
