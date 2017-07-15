@@ -1,3 +1,4 @@
+import { ServicesModule } from './services/services.module';
 import { FooterModule } from './modules/footer/footer.module';
 import { BodyModule } from './modules/body/body.module';
 import { HeaderModule } from './modules/header/header.module';
@@ -19,7 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     // app modules
     HeaderModule,
     BodyModule,
-    FooterModule
+    FooterModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

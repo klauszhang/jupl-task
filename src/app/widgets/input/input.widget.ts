@@ -9,7 +9,7 @@ export class InputWidget {
     @Input() title: string;
     // databinding for value change
     @Output() change = new EventEmitter<string>();
-    @Input() input(event) {
+    input(event) {
         this.change.emit(event.target.value);
     }
 
