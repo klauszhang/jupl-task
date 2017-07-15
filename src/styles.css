@@ -2,6 +2,8 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 /* import font roboto  */
 
+/* TODO use scss instead of css to implement mixins from material library  */
+
 body{
     font-family: Roboto, serif;
     margin:0;
@@ -13,4 +15,9 @@ body{
 
 label.mat-input-placeholder.mat-float{
     color:#000 !important;
+}
+
+.fill{
+    height:100%;
+    width: 100%;
 }

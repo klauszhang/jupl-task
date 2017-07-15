@@ -1,5 +1,8 @@
 <md-input-container>
     <input mdInput
         [placeholder]="title"
-        (input)="input($event)">
+        [name]="name"
+        [type]="type"
+        (input)="input($event)"
+        [value]="initialValue">
 </md-input-container>

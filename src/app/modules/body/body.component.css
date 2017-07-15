@@ -1,19 +1,40 @@
 :host{
-    position: relative;
+   position: relative;
    display: flex;
    justify-content: center;
    width:100%;
-   min-height:800px;
    top:50px;
 }
 
 :host md-card{
-width:80%;
-height:100%;
+    width:80%;
+    height:100%;
+    max-width:900px;
+    margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 568px){
+    :host md-card{
+        width:95%;
+    }
 }
 
 .btn-group{
     position: absolute;
     bottom: 30px;
-    right:30px
 }
+
+.btn-group>button:last-child{
+    margin-left: 24px;
+}
+
+@media only screen and  (min-width:568px){
+    .btn-group{
+    right:30px;
+}
+}
+.load-screen{
+    height:100%;
+    width:100%;
+}
+

@@ -1,0 +1,26 @@
+.switches{
+    display: flex;
+    flex:1;
+    width:100%;
+    flex-direction: column;
+    align-content: center;
+    margin-top: 30px;
+}
+
+.inputs{
+    flex:2;
+    display:flex;
+    flex-direction: column;
+}
+/* for mobiles  */
+.warpper{
+    display: flex;
+    flex-direction: column;
+}
+
+/* for desktop */
+@media only screen and (min-width:980px){
+    .warpper{
+        flex-direction: row;
+    }
+}

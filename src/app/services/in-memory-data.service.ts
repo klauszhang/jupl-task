@@ -1,3 +1,7 @@
+/**
+ * provide service for mocking api calls
+ */
+
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 

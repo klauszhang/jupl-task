@@ -7,10 +7,13 @@ import { Component, Input, Output, EventEmitter, DoCheck } from '@angular/core';
 export class InputWidget {
     model: string;
     @Input() title: string;
+    @Input() name: string;
+    @Input() type: string;
+    @Input() initialValue = "";
     // databinding for value change
-    @Output() change = new EventEmitter<string>();
+    @Output() output = new EventEmitter<string>();
     input(event) {
-        this.change.emit(event.target.value);
+        this.output.emit(event.target.value);
     }
 
 }

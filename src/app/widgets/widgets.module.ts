@@ -1,12 +1,20 @@
+import { LoadingScreenWidget } from './loading-screen/loading-screen.widget';
 import { InputWidget } from './input/input.widget';
 import { NgModule } from '@angular/core';
-import { MdInputModule } from "@angular/material";
+import { MdInputModule, MdProgressSpinnerModule } from "@angular/material";
 import { FormsModule } from "@angular/forms";
 @NgModule({
-    exports: [InputWidget],
-    declarations: [InputWidget],
+    exports: [
+        InputWidget,
+        LoadingScreenWidget
+    ],
+    declarations: [
+        InputWidget,
+        LoadingScreenWidget],
     imports: [
         FormsModule,
-        MdInputModule]
+        MdInputModule,
+        MdProgressSpinnerModule
+    ]
 })
 export class WidgetsModule { }

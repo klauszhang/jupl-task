@@ -1,0 +1,17 @@
+:host{
+    display: block;
+    margin-bottom: 32px;
+    padding:12px;
+    background-color: #eee;
+    border-bottom: 6px solid #ccc;
+}
+
+span{
+    margin-left: 12px;
+    white-space: nowrap;
+}
+
+span>b{
+    font-weight: 100;
+    border-bottom: 1px solid #999;
+}

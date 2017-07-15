@@ -1,0 +1,96 @@
+<div class="warpper">
+    <!-- inputs  -->
+    <div class="inputs">
+
+        <div>
+            <jp-device-setting-input field="DeviceName"
+                [settings]="settings"
+                (output)="onChange($event)">
+            </jp-device-setting-input>
+
+            <jp-device-setting-input field="CmfPhoneNumber"
+                [settings]="settings"
+                type="phone"
+                (output)="onChange($event)"></jp-device-setting-input>
+
+        </div>
+
+
+        <div>
+            <jp-device-setting-input field="ReportInterval"
+                [settings]="settings"
+                (output)="onChange($event)"></jp-device-setting-input>
+
+            <jp-device-setting-input field="DailyReportInterval"
+                [settings]="settings"
+                (output)="onChange($event)"></jp-device-setting-input>
+
+            <jp-device-setting-input field="PingInterval"
+                [settings]="settings"
+                (output)="onChange($event)"></jp-device-setting-input>
+
+
+        </div>
+
+        <div>
+            <jp-device-setting-input field="AdherenceCheckInterval"
+                [settings]="settings"
+                (output)="onChange($event)"></jp-device-setting-input>
+
+            <jp-device-setting-input field="TouchTriggerCooldownPeriod"
+                [settings]="settings"
+                (output)="onChange($event)"></jp-device-setting-input>
+
+
+
+        </div>
+
+        <div>
+            <jp-device-setting-input field="PreAlarmPeriod"
+                [settings]="settings"
+                (output)="onChange($event)"></jp-device-setting-input>
+
+            <jp-device-setting-input field="AlarmClearTimeout"
+                [settings]="settings"
+                (output)="onChange($event)"></jp-device-setting-input>
+
+            <jp-device-setting-input field="AlarmCancelTimeout"
+                [settings]="settings"
+                (output)="onChange($event)"></jp-device-setting-input>
+        </div>
+
+
+        <div>
+            <jp-device-setting-input field="GeoLocationRetryCount"
+                [settings]="settings"
+                (output)="onChange($event)"></jp-device-setting-input>
+
+            <jp-device-setting-input field="GeoLocationTimeOut"
+                [settings]="settings"
+                (output)="onChange($event)"></jp-device-setting-input>
+
+            <jp-device-setting-input field="GeoMaxAgeTimeOut"
+                [settings]="settings"
+                (output)="onChange($event)"></jp-device-setting-input>
+
+        </div>
+    </div>
+    <!-- switches  -->
+    <div class="switches">
+        <md-slide-toggle [checked]="settings.VerboseLogging"
+            (change)="onChangeField($event,'VerboseLogging')">
+            Verbose logging {{settings.VerboseLogging?'ON':'OFF'}}</md-slide-toggle>
+
+        <md-slide-toggle [checked]="settings.DemoMode"
+            (change)="onChangeField($event,'DemoMode')">
+            Demo Mode {{settings.DemoMode?'ON':'OFF'}}</md-slide-toggle>
+
+        <md-slide-toggle [checked]="settings.PalmTouchTrigger"
+            (change)="onChangeField($event,'PalmTouchTrigger')">
+            Palm Touch Trigger {{settings.PalmTouchTrigger?'High':'Low'}}</md-slide-toggle>
+
+        <md-slide-toggle [checked]="settings.GeoLocationHighAccuracy"
+            (change)="onChangeField($event,'GeoLocationHighAccuracy')">
+            Geo Location Accuracy {{settings.GeoLocationHighAccuracy?'High':'Low'}}</md-slide-toggle>
+    </div>
+</div>
