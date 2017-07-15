@@ -11,3 +11,9 @@
 width:80%;
 height:100%;
 }
+
+.btn-group{
+    position: absolute;
+    bottom: 30px;
+    right:30px
+}

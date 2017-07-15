@@ -1,5 +1,5 @@
 /* import material ui files  */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 /* import font roboto  */
 
 body{
@@ -8,4 +8,9 @@ body{
     padding:0;
     height:100%;
     width: 100%;
+    background-color: #e0e0e0;
+}
+
+label.mat-input-placeholder.mat-float{
+    color:#000 !important;
 }

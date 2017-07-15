@@ -1,8 +1,10 @@
 
 #jp-header{
     min-height: 160px;
-    background-color:#3F51B5;
-    color:#eee;
+    background-color:#FFB300;
+    color:#111;
     position: fixed;
-    top:0
+    top:0;
+    display: block;
+    text-align: center;
 }

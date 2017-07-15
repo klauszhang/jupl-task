@@ -4,4 +4,13 @@ import { Component } from '@angular/core';
     templateUrl: './body.component.html',
     styleUrls: ['./body.component.css']
 })
-export class BodyComponent { }
+export class BodyComponent {
+    value: string;
+
+    onChange(value: string) {
+        if (typeof (value) === "string") {
+            console.log(value)
+            this.value = value;
+        }
+    }
+}

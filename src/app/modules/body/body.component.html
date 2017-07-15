@@ -1,3 +1,12 @@
 <md-card id="jp-body">
-    this is the body content
+    <div>{{value}}</div>
+    <jp-input title="test"
+        (change)="onChange($event)"></jp-input>
+
+    <div class="btn-group">
+        <button md-raised-button
+            color="primary">Save</button>
+        <button md-button>Cancel</button>
+    </div>
+
 </md-card>
