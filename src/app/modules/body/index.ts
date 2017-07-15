@@ -2,7 +2,7 @@ import { DeviceSettingInputComponent } from './device-setting-input/index';
 import { DeviceInfoComponent } from './device-info';
 import { DeviceSettingComponent } from './device-settings';
 import { FormsModule } from '@angular/forms';
-import { WidgetsModule } from './../../widgets/widgets.module';
+import { WidgetsModule } from 'app/widgets';
 import { BodyComponent } from './body.component';
 import { NgModule } from '@angular/core';
 import { MdCardModule, MdButtonModule, MdSlideToggleModule } from "@angular/material";

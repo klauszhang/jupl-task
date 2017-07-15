@@ -1,7 +1,7 @@
 import { ServicesModule } from './services/services.module';
-import { FooterModule } from './modules/footer/footer.module';
-import { BodyModule } from './modules/body/body.module';
-import { HeaderModule } from './modules/header/header.module';
+import { FooterModule } from './modules/footer';
+import { BodyModule } from './modules/body';
+import { HeaderModule } from './modules/header';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
