@@ -1,4 +1,9 @@
 <div>
-    <span>Uid: <b>{{uid}}</b></span>
-    <span>Vigil Id: <b>{{vigilId}}</b></span>
+    <span>Uid: <em>{{uid}}</em></span>
+    <span>
+        Vigil Id: 
+        <em mdTooltip="change device id"
+        class="underline" 
+        (click)="onClickEdit()">{{vigilId}}</em> 
+    </span>
 </div>

@@ -1,20 +1,34 @@
+import { ConfigmDialogWidget } from './confirm.dialog';
 import { LoadingScreenWidget } from './loading-screen/loading-screen.widget';
 import { InputWidget } from './input/input.widget';
 import { NgModule } from '@angular/core';
-import { MdInputModule, MdProgressSpinnerModule } from "@angular/material";
+import {
+    MdInputModule,
+    MdProgressSpinnerModule,
+    MdDialogModule,
+    MdButtonModule
+} from "@angular/material";
 import { FormsModule } from "@angular/forms";
 @NgModule({
     exports: [
         InputWidget,
-        LoadingScreenWidget
+        LoadingScreenWidget,
+        ConfigmDialogWidget
     ],
     declarations: [
         InputWidget,
-        LoadingScreenWidget],
+        LoadingScreenWidget,
+        ConfigmDialogWidget
+    ],
     imports: [
         FormsModule,
         MdInputModule,
-        MdProgressSpinnerModule
-    ]
+        MdProgressSpinnerModule,
+        MdDialogModule,
+        MdButtonModule
+    ],
+    entryComponents: [
+        ConfigmDialogWidget
+    ],
 })
 export class WidgetsModule { }

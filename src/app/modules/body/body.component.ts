@@ -1,5 +1,7 @@
+import { DeviceService } from 'app/services';
+import { ConfigmDialogWidget } from './../../widgets/confirm.dialog/index';
+import { MdDialog } from '@angular/material';
 import { Device } from './../../models/Device';
-import { DeviceService } from './../../services/device.service';
 import { Component, OnInit } from '@angular/core';
 @Component({
     selector: 'jp-body',
@@ -10,13 +12,13 @@ import { Component, OnInit } from '@angular/core';
 export class BodyComponent implements OnInit {
     value: string;
     device: Device;
-
-    constructor(private deviceService: DeviceService) { }
+    deviceId = '40072';
+    constructor(
+        private deviceService: DeviceService,
+        private dialog: MdDialog) { }
 
     ngOnInit(): void {
-        this.deviceService.getDevices().subscribe(data => {
-            this.device = data;
-        });
+        this.loadData();
     }
 
     onChange(value: string) {
@@ -25,4 +27,28 @@ export class BodyComponent implements OnInit {
             this.value = value;
         }
     }
+
+    onDeviceIdChange(value: string) {
+        console.log(value);
+        // TODO reload page and device data
+    }
+    onClickReset() {
+        // open confirm dialog
+        this.dialog
+            .open(ConfigmDialogWidget,
+            { data: { message: 'This will reset the information to its original.' } })
+            .afterClosed()
+            .subscribe(result => {
+                if (result) {
+                    this.device = undefined;
+                    this.loadData();
+                }
+            });
+
+    }
+    private loadData = () =>
+        this.deviceService.getDevices(this.deviceId)
+            .subscribe(data => {
+                this.device = data;
+            });
 }

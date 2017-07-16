@@ -1,14 +1,7 @@
 
-#jp-header{
+md-toolbar{
     min-height: 160px;
-    background-color:#FFB300;
     color:#111;
     position: fixed;
     top:0;
-    display: block;
-    text-align: center;
-}
-
-#jp-header h2{
-    color: #eee;
 }

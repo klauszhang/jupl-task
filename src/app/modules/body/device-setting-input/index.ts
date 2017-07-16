@@ -20,7 +20,11 @@ export class DeviceSettingInputComponent {
         this.output.emit(this.settings);
     }
 
-    getType = () => this.type ? this.type : typeof (this.settings[this.field])
+    getType = () => this.type
+        ? this.type
+        : typeof (this.settings[this.field]) === "string"
+            ? 'text'
+            : typeof (this.settings[this.field]);
     getTitle = () => this.title ? this.title : this.field
         .replace(/([A-Z])/g, ' $1')
         .replace(/^./, str => str.toUpperCase())
