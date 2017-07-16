@@ -15,8 +15,8 @@ import {
     MdTooltipModule,
     MdInputModule
 } from "@angular/material";
-import { ServicesModule } from "app/services";
-import { HttpModule } from "@angular/http";
+import { ServicesModule, AuthInterceptorService } from "app/services";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { CommonModule } from "@angular/common";
 
 @NgModule({
@@ -35,7 +35,7 @@ import { CommonModule } from "@angular/common";
         // angular specific
         CommonModule,
         FormsModule,
-        HttpModule,
+        HttpClientModule,
         // material specific
         MdCardModule,
         MdButtonModule,
@@ -49,7 +49,11 @@ import { CommonModule } from "@angular/common";
         WidgetsModule,
     ],
     providers: [
-
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptorService,
+            multi: true,
+        }
     ]
 
 })

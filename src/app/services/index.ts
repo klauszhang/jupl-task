@@ -1,4 +1,4 @@
-import { AuthService } from './auth.service';
+import { AuthInterceptorService } from './auth.interceptor.service';
 import { DeviceService } from './device.service';
 import { NgModule } from '@angular/core';
 
@@ -15,5 +15,5 @@ export class ServicesModule { }
 
 export {
     DeviceService,
-    AuthService
+    AuthInterceptorService
 }
