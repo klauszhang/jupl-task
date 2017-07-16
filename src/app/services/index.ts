@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { DeviceService } from './device.service';
 import { NgModule } from '@angular/core';
 
@@ -10,17 +11,9 @@ import { InMemoryDataService } from './in-memory-data.service';
         InMemoryWebApiModule.forRoot(InMemoryDataService),
     ]
 })
-export class ServicesModule {
-
-    // provide config methods. not used for now
-    static forRoot() {
-        return {
-            ngModule: ServicesModule,
-            providers: [DeviceService]
-        }
-    }
-}
+export class ServicesModule { }
 
 export {
-    DeviceService
+    DeviceService,
+    AuthService
 }

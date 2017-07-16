@@ -1,0 +1,19 @@
+<md-dialog-content>
+  <md-input-container>
+    <input mdInput
+      placeholder="Device Id"
+      name="deviceId"
+      type="text"
+      [(ngModel)]="deviceId">
+  </md-input-container>
+</md-dialog-content>
+
+
+<md-dialog-actions>
+  <button md-raised-button
+    color="primary"
+    [md-dialog-close]="true"
+    (click)="onClickOk()">Ok</button>
+  <button md-button
+    md-dialog-close>Close</button>
+</md-dialog-actions>

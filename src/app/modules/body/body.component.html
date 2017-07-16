@@ -14,6 +14,7 @@
 
         <!-- header part  -->
         <jp-device-info [uid]="device.Uid"
+            (deviceIdChange)="onDeviceIdChange($event)"
             [vigilId]="device.VigilId"></jp-device-info>
 
         <!-- input area  -->
@@ -23,7 +24,8 @@
         <div class="btn-group">
             <button md-raised-button
                 color="primary">Save</button>
-            <button md-button>Cancel</button>
+            <button md-button
+                (click)="onClickReset()">Reset</button>
         </div>
 
     </div>

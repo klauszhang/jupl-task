@@ -11,7 +11,17 @@ span{
     white-space: nowrap;
 }
 
-span>b{
-    font-weight: 100;
-    border-bottom: 1px solid #999;
+span>em{
+    font-style: normal;
+    font-weight: 400;
 }
+
+.underline{
+    border-bottom: 1px solid #999;
+    cursor: pointer;
+}
+
+.underline:hover{
+    color: #999;
+}
+
