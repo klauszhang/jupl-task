@@ -54,7 +54,6 @@ export class BodyComponent implements OnInit {
     }
 
     onSubmit(value) {
-        console.log(value);
         this.dialog
             .open(ConfirmDialogWidget, { data: { message: 'this will save information.' } })
             .afterClosed()
