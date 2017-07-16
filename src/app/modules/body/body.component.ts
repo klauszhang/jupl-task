@@ -5,6 +5,10 @@ import { ConfirmDialogWidget } from './../../widgets/confirm.dialog/index';
 import { MdDialog } from '@angular/material';
 import { Device } from './../../models/Device';
 import { Component, OnInit } from '@angular/core';
+import { HttpErrorResponse } from "@angular/common/http";
+
+
+
 @Component({
     selector: 'jp-body',
     templateUrl: './body.component.html',
@@ -12,8 +16,10 @@ import { Component, OnInit } from '@angular/core';
     providers: [DeviceService]
 })
 export class BodyComponent implements OnInit {
+    readError: HttpErrorResponse;
     value: string;
     device: Device;
+
     deviceId = 40072;
     constructor(
         private deviceService: DeviceService,
@@ -30,10 +36,10 @@ export class BodyComponent implements OnInit {
     }
 
     onDeviceIdChange(value: number) {
-        this.device = null;
         this.deviceId = value;
         this.loadData();
     }
+
     onClickReset() {
         // open confirm dialog
         this.dialog
@@ -42,7 +48,6 @@ export class BodyComponent implements OnInit {
             .afterClosed()
             .subscribe(result => {
                 if (result) {
-                    this.device = undefined;
                     this.loadData();
                 }
             });
@@ -53,25 +58,36 @@ export class BodyComponent implements OnInit {
             .open(ConfirmDialogWidget, { data: { message: 'this will save information.' } })
             .afterClosed()
             .subscribe(result => {
-                let loadingDialog = this.dialog.open(LoadingDialogWidget);
+                const loadingDialog = this.dialog.open(LoadingDialogWidget);
                 if (result) {
                     this.deviceService
                         .updateDevice(this.device.VigilId, this.device)
                         .subscribe(response => {
                             this.device = response;
                             loadingDialog.close();
+                        }, error => {
+                            this.readError = error;
+                            loadingDialog.close();
                         });
                 }
             })
     }
 
+    handleError(error: HttpErrorResponse) {
+        this.readError = error;
+    }
 
-
-    private loadData = () =>
+    loadData() {
+        this.device = undefined;
+        this.readError = undefined;
         this.deviceService
             .getDevices(this.deviceId)
-            .subscribe(data => {
+            .subscribe(
+            data => {
                 this.device = data;
-            });
+            },
+            error => this.readError = error
+            );
+    }
 
 }

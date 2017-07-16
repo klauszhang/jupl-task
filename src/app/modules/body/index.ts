@@ -5,7 +5,7 @@ import { DeviceSettingComponent } from './device-settings';
 import { FormsModule } from '@angular/forms';
 import { WidgetsModule } from 'app/widgets';
 import { BodyComponent } from './body.component';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {
     MdCardModule,
     MdButtonModule,

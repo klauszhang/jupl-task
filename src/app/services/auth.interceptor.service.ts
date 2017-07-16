@@ -6,6 +6,7 @@ import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/c
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
         const token = environment.token;
 
         const authReq = req.clone({ headers: req.headers.append('Authorization', `Bearer ${token}`) });

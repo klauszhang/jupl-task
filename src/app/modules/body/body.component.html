@@ -1,16 +1,30 @@
 <md-card id="jp-body">
 
     <!-- loading screen  -->
-    <div *ngIf="!device"
+    <div *ngIf="!device && !readError"
         class="fill">
         <jp-loading-screen></jp-loading-screen>
     </div>
 
+    <div *ngIf="readError"
+        class="fill">
+        <h2>Error :(</h2>
+        <p>
+            oops... this is not expected. there's something wrong, please refresh and try again. if the problem remains, please contact
+            our customer service: (88)777 6666.
+        </p>
+        <p>
+            Message: <br>
+            <code>{{readError.message}}</code>
+        </p>
 
-    
+        <button md-raised-button
+            color="primary" (click)="loadData()">Refresh</button>
+    </div>
+
 
     <!--input fields  -->
-    <div *ngIf="device"
+    <div *ngIf="device && !readError"
         class="fill"
         id="device-settings">
 

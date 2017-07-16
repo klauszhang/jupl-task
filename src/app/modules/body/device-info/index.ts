@@ -16,9 +16,12 @@ export class DeviceInfoComponent {
     onClickEdit() {
         const dialogRef = this.dialog.open(ChangeDeviceDialog,
             { data: { deviceId: this.vigilId } });
-        dialogRef.afterClosed()
+        dialogRef
+            .afterClosed()
             .subscribe(result => {
-                this.deviceIdChange.emit(result);
+                if (result) {
+                    this.deviceIdChange.emit(result);
+                }
             })
     }
 }

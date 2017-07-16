@@ -13,8 +13,8 @@ import { InMemoryDataService } from "app/services/in-memory-data.service";
 @Injectable()
 export class DeviceService {
 
-    private url = (id: number) => `https://preprod.vbn.care/api2/v2/device/${id}?names=RuntimeSettings`
-
+    private url = (id: number) => `https://preprod.vbn.care/api2/v2/device/${id}?names=RuntimeSettings`;
+    private updateUrl = (id: number) => `https://preprod.vbn.care/api2/v2/device/${id}`;
     private mockDataService = new InMemoryDataService();
 
     constructor(private http: HttpClient) {
@@ -40,7 +40,7 @@ export class DeviceService {
 
         if (environment.production) {
 
-            return this.http.put<Device>(this.url(id), data)
+            return this.http.put<Device>(this.updateUrl(id), data)
                 .map(response => response);
 
         } else {

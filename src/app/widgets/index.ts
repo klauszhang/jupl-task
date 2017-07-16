@@ -2,7 +2,7 @@ import { LoadingDialogWidget } from './loading.dialog';
 import { ConfirmDialogWidget } from './confirm.dialog';
 import { LoadingScreenWidget } from './loading-screen/loading-screen.widget';
 import { InputWidget } from './input/input.widget';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {
     MdInputModule,
     MdProgressSpinnerModule,
@@ -33,6 +33,6 @@ import { FormsModule } from "@angular/forms";
     entryComponents: [
         LoadingDialogWidget,
         ConfirmDialogWidget
-    ],
+    ]
 })
 export class WidgetsModule { }
