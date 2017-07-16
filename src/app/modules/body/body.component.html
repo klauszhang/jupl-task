@@ -7,6 +7,8 @@
     </div>
 
 
+    
+
     <!--input fields  -->
     <div *ngIf="device"
         class="fill"
@@ -23,6 +25,7 @@
         <!-- button group  -->
         <div class="btn-group">
             <button md-raised-button
+                (click)="onClickSave()"
                 color="primary">Save</button>
             <button md-button
                 (click)="onClickReset()">Reset</button>

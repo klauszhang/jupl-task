@@ -1,4 +1,4 @@
-import { ConfigmDialogWidget } from './widgets/confirm.dialog/index';
+import { ConfirmDialogWidget } from './widgets/confirm.dialog/index';
 import { ServicesModule } from './services';
 import { FooterModule } from './modules/footer';
 import { BodyModule } from './modules/body';

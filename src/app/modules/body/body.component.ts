@@ -1,5 +1,7 @@
+import { MdDialogRef } from '@angular/material';
+import { LoadingDialogWidget } from './../../widgets/loading.dialog/index';
 import { DeviceService } from 'app/services';
-import { ConfigmDialogWidget } from './../../widgets/confirm.dialog/index';
+import { ConfirmDialogWidget } from './../../widgets/confirm.dialog/index';
 import { MdDialog } from '@angular/material';
 import { Device } from './../../models/Device';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
 export class BodyComponent implements OnInit {
     value: string;
     device: Device;
-    deviceId = '40072';
+    deviceId = 40072;
     constructor(
         private deviceService: DeviceService,
         private dialog: MdDialog) { }
@@ -23,19 +25,19 @@ export class BodyComponent implements OnInit {
 
     onChange(value: string) {
         if (typeof (value) === "string") {
-            console.log(value)
             this.value = value;
         }
     }
 
-    onDeviceIdChange(value: string) {
-        console.log(value);
-        // TODO reload page and device data
+    onDeviceIdChange(value: number) {
+        this.device = null;
+        this.deviceId = value;
+        this.loadData();
     }
     onClickReset() {
         // open confirm dialog
         this.dialog
-            .open(ConfigmDialogWidget,
+            .open(ConfirmDialogWidget,
             { data: { message: 'This will reset the information to its original.' } })
             .afterClosed()
             .subscribe(result => {
@@ -44,11 +46,32 @@ export class BodyComponent implements OnInit {
                     this.loadData();
                 }
             });
-
     }
+
+    onClickSave() {
+        this.dialog
+            .open(ConfirmDialogWidget, { data: { message: 'this will save information.' } })
+            .afterClosed()
+            .subscribe(result => {
+                let loadingDialog = this.dialog.open(LoadingDialogWidget);
+                if (result) {
+                    this.deviceService
+                        .updateDevice(this.device.VigilId, this.device)
+                        .subscribe(response => {
+                            this.device = response;
+                            loadingDialog.close();
+                        });
+                }
+            })
+    }
+
+
+
     private loadData = () =>
-        this.deviceService.getDevices(this.deviceId)
+        this.deviceService
+            .getDevices(this.deviceId)
             .subscribe(data => {
                 this.device = data;
             });
+
 }

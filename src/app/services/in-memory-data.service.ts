@@ -1,14 +1,23 @@
+import { Device } from 'app/models/Device';
 /**
  * provide service for mocking api calls
  */
 
-import { InMemoryDbService } from 'angular-in-memory-web-api';
 
+export class InMemoryDataService {
 
-export class InMemoryDataService implements InMemoryDbService {
-    createDb(): {} {
+    constructor() {
+        this.createDb()
+    }
 
-        const device = {
+    // data is a singleton
+    public data: Device;
+
+    get = () => this.data;
+    put = (device: Device): Device => this.data = device;
+
+    createDb() {
+        this.data = {
             "VigilId": 40072,
             "Uid": "R3AJ1001EMH",
             "Model": {
@@ -33,7 +42,5 @@ export class InMemoryDataService implements InMemoryDbService {
                 }
             }
         };
-        return { device };
-
     }
 }

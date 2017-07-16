@@ -1,4 +1,5 @@
-import { ConfigmDialogWidget } from './confirm.dialog';
+import { LoadingDialogWidget } from './loading.dialog';
+import { ConfirmDialogWidget } from './confirm.dialog';
 import { LoadingScreenWidget } from './loading-screen/loading-screen.widget';
 import { InputWidget } from './input/input.widget';
 import { NgModule } from '@angular/core';
@@ -12,13 +13,15 @@ import { FormsModule } from "@angular/forms";
 @NgModule({
     exports: [
         InputWidget,
+        LoadingDialogWidget,
         LoadingScreenWidget,
-        ConfigmDialogWidget
+        ConfirmDialogWidget
     ],
     declarations: [
         InputWidget,
+        LoadingDialogWidget,
         LoadingScreenWidget,
-        ConfigmDialogWidget
+        ConfirmDialogWidget
     ],
     imports: [
         FormsModule,
@@ -28,7 +31,8 @@ import { FormsModule } from "@angular/forms";
         MdButtonModule
     ],
     entryComponents: [
-        ConfigmDialogWidget
+        LoadingDialogWidget,
+        ConfirmDialogWidget
     ],
 })
 export class WidgetsModule { }

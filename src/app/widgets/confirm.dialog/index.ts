@@ -6,14 +6,13 @@ import { Component, Inject } from '@angular/core';
     templateUrl: './confirm.dialog.html',
     styleUrls: ['./confirm.dialog.css']
 })
-export class ConfigmDialogWidget {
+export class ConfirmDialogWidget {
 
     message: string;
     constructor(
-        public dialogRef: MdDialogRef<ConfigmDialogWidget>,
+        public dialogRef: MdDialogRef<ConfirmDialogWidget>,
         @Inject(MD_DIALOG_DATA) public data: any) {
         if (this.data.message) {
-            console.log(this.data.message);
             this.message = this.data.message;
         }
     }
