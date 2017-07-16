@@ -19,7 +19,8 @@
         </p>
 
         <button md-raised-button
-            color="primary" (click)="loadData()">Refresh</button>
+            color="primary"
+            (click)="loadData()">Refresh</button>
     </div>
 
 
@@ -28,23 +29,28 @@
         class="fill"
         id="device-settings">
 
-        <!-- header part  -->
-        <jp-device-info [uid]="device.Uid"
-            (deviceIdChange)="onDeviceIdChange($event)"
-            [vigilId]="device.VigilId"></jp-device-info>
+        <form (ngSubmit)="onSubmit(deviceForm)"
+            #deviceForm="ngForm">
+            
+            <!-- header part  -->
+            <jp-device-info [uid]="device.Uid"
+                (deviceIdChange)="onDeviceIdChange($event)"
+                [vigilId]="device.VigilId"></jp-device-info>
 
-        <!-- input area  -->
-        <jp-device-settings [settings]="device.Model.RuntimeSettings"></jp-device-settings>
+            <!-- input area  -->
+            <jp-device-settings [settings]="device.Model.RuntimeSettings"></jp-device-settings>
 
-        <!-- button group  -->
-        <div class="btn-group">
-            <button md-raised-button
-                (click)="onClickSave()"
-                color="primary">Save</button>
-            <button md-button
-                (click)="onClickReset()">Reset</button>
-        </div>
-
+            <!-- button group  -->
+            <div class="btn-group">
+                <button md-raised-button
+                    type="submit"
+                    [disabled]="!deviceForm.form.valid"
+                    color="primary">Save</button>
+                <button md-button
+                    type="button"
+                    (click)="onClickReset()">Reset</button>
+            </div>
+        </form>
     </div>
 
 </md-card>

@@ -53,13 +53,14 @@ export class BodyComponent implements OnInit {
             });
     }
 
-    onClickSave() {
+    onSubmit(value) {
+        console.log(value);
         this.dialog
             .open(ConfirmDialogWidget, { data: { message: 'this will save information.' } })
             .afterClosed()
             .subscribe(result => {
-                const loadingDialog = this.dialog.open(LoadingDialogWidget);
                 if (result) {
+                    const loadingDialog = this.dialog.open(LoadingDialogWidget);
                     this.deviceService
                         .updateDevice(this.device.VigilId, this.device)
                         .subscribe(response => {

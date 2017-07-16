@@ -5,7 +5,7 @@ import { DeviceSettingComponent } from './device-settings';
 import { FormsModule } from '@angular/forms';
 import { WidgetsModule } from 'app/widgets';
 import { BodyComponent } from './body.component';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import {
     MdCardModule,
     MdButtonModule,
@@ -13,7 +13,9 @@ import {
     MdIconModule,
     MdDialogModule,
     MdTooltipModule,
-    MdInputModule
+    MdInputModule,
+    showOnDirtyErrorStateMatcher,
+    MD_ERROR_GLOBAL_OPTIONS
 } from "@angular/material";
 import { ServicesModule, AuthInterceptorService } from "app/services";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";

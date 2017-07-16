@@ -1,28 +1,47 @@
-# JuplTask
+# Jupl Device Manager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
+this task is for jupl demo only.
 
-## Development server
+to pull the package
+```
+git pull https://github.com/klauszhang/jupl-task.git
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+install npm packages
+```
+npm install
+```
 
-## Code scaffolding
+to run it in production (fetch information through ajax calls)
+```
+ng serve --environment=prod
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+to run it in dev (fetch stuff by local data store)
+```
+ng serve
+```
 
-## Build
+to run test
+```
+npm test
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## NOTES
 
-## Running unit tests
+- It actually took quite a while to finish the page, I want to make it visually nice (to show my respsect). It is even responsive to different platforms.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Only a few tests were written, but I do picked two `components`, one `service` with dependency and one `interceptor` to test just to show actually I know how to properly test angular apps.
 
-## Running end-to-end tests
+- When `put` to server, I got an `500` error. I just display the error on the page because I believe something start with '5' shouldn't be the client side's fault.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+- future work are marked as `TODO` in the app, nothing is near perfect, we always should be ready for refactory.
 
-## Further help
+## Some thoughts
+- the http authentication header is added by an interceptor, this is an over-kill for this project. But when handling Oauth calls, this is the standard approach I usually take. Usually I will create another interceptor to catch `401` errors and redirect user to login page.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- I thought of using routing and adding a mocked login page for it. But I removed that idea because I think it would be an over-kill. 
+
+- Maybe I missing some data validation for those inputs, I added name for each input, but all I can check is it should not be empty.
+
+- Use ReactJS would take only half of the time (or even less) for small projects like this :)

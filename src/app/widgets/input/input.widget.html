@@ -1,8 +1,11 @@
 <md-input-container>
     <input mdInput
+        required
         [placeholder]="title"
         [name]="name"
         [type]="type"
         (input)="input($event)"
-        [value]="initialValue">
+        [value]="initialValue"
+        [(ngModel)]="model">
+    <md-error>Sorry, This field is required :)</md-error>
 </md-input-container>

@@ -1,4 +1,4 @@
-import { environment } from './../../environments/environment';
+import { environment } from 'environments/environment';
 
 import { Device } from 'app/models/Device';
 import { Injectable } from '@angular/core';
@@ -16,14 +16,13 @@ export class DeviceService {
     private url = (id: number) => `https://preprod.vbn.care/api2/v2/device/${id}?names=RuntimeSettings`;
     private updateUrl = (id: number) => `https://preprod.vbn.care/api2/v2/device/${id}`;
     private mockDataService = new InMemoryDataService();
+    public env = environment;
 
-    constructor(private http: HttpClient) {
-
-    }
+    constructor(private http: HttpClient) { }
 
     getDevices(id: number): Observable<Device> {
 
-        if (environment.production) {
+        if (this.env.production) {
 
             return this.http.get<Device>(this.url(id))
                 .map(response => response)
@@ -33,12 +32,13 @@ export class DeviceService {
             return Observable.of(this.mockDataService.get()).delay(1000);
 
         }
+
     }
 
 
     updateDevice(id: number, data: Device) {
 
-        if (environment.production) {
+        if (this.env.production) {
 
             return this.http.put<Device>(this.updateUrl(id), data)
                 .map(response => response);
@@ -48,6 +48,8 @@ export class DeviceService {
             return Observable.of(this.mockDataService.put(data)).delay(1000);
 
         }
+
+
 
     }
 

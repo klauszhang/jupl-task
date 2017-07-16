@@ -1,4 +1,5 @@
 <jp-input [title]="getTitle()"
+    [name]="field"
     [initialValue]="settings[field]"
     (output)="onChange($event, field)"
     [type]="getType()"></jp-input>
