@@ -20,9 +20,5 @@ export class InputWidget {
 
     ngOnInit() {
         this.model = this.initialValue;
-        console.log(this.title);
-        console.log(this.name);
-        console.log(this.type);
-        console.log(this.initialValue);
     }
 }

@@ -4,7 +4,7 @@ this task is for jupl demo only.
 
 to pull the package
 ```
-git pull https://github.com/klauszhang/jupl-task.git
+git clone https://github.com/klauszhang/jupl-task.git
 ```
 
 install npm packages
