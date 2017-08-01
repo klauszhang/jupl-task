@@ -13,16 +13,25 @@ install npm packages
 ```
 npm install
 ```
+# about the production error
+
+**NOTE from hao - 2/8/2017**
+it seems there's some bug in angular-cli:
+https://github.com/angular/angular-cli/issues/7113
+to fix, i added the package accordingly. now the production mode should run as expected.
+please pull the latest version and run the application, please see following scripts to make it running. 
+
+**well, it seems the version i pushed to azure actually works that blinds me. sorry for this inconvenience.**
 
 # To Run
 
 to run it in production (fetch information through ajax calls)
 ```
-ng serve --environment=prod
+ng serve -prod
 ```
 or (in case you don't have angular-cli)
 ```
-npm run ng serve --environment=prod
+npm run ng serve -- -prod
 ```
 
 to run it in dev (fetch stuff by local data store)
@@ -45,11 +54,11 @@ npm test
 
 # To build
 ```
-ng build --environment=prod
+ng build -prod
 ```
 or
 ```
-npm run ng build --environment=prod
+npm run ng build -- -prod
 ```
 Then you can find the distribution in the dist folder.
 ## NOTES
